@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* main stredná sekcia */
+    --background: 42.9 100% 94.5%;
+    --foreground: 20 10% 25%;
+
+    --card: 42.9 100% 94.5%;
+    --card-foreground: 20 10% 25%;
+
+    --popover: 42.9 100% 94.5%;
+    --popover-foreground: 20 10% 25%;
+
+    --primary: 25 60% 30%;
+    --primary-foreground: 40 50% 95%;
+
+    --secondary: 30 40% 85%;
+    --secondary-foreground: 25 60% 25%;
+
+    --muted: 35 25% 90%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 15 70% 40%;
+    --accent-foreground: 40 50% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 80%;
+    --input: 30 20% 80%;
+    --ring: 25 60% 30%;
+
+    --radius: 0px;
+
+    /* sidebar */
+    --sidebar-bg: 41.6 52.7% 81.8%;
+    --sidebar-heading-bg: 27.3 32.8% 26.3%;
+    --sidebar-text: 27.3 32.8% 26.3%;
+    --sidebar-hover: 41.6 52.7% 78%;
+
+    --date-bg: 27.3 32.8% 26.3%;
+    --date-text: 42.9 100% 94.5%;
+
+    --link-color: 15 70% 40%;
+
+    --sidebar-background: 41.6 52.7% 81.8%;
+    --sidebar-foreground: 27.3 32.8% 26.3%;
+    --sidebar-primary: 27.3 32.8% 26.3%;
+    --sidebar-primary-foreground: 42.9 100% 94.5%;
+    --sidebar-accent: 41.6 52.7% 78%;
+    --sidebar-accent-foreground: 27.3 32.8% 26.3%;
+    --sidebar-border: 27.3 32.8% 26.3%;
+    --sidebar-ring: 27.3 32.8% 26.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 14px;
+    line-height: 1.6;
+    /* Default FE background: pale brown via --background (no image). */
+    background-image: none;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+
+  a {
+    color: hsl(var(--link-color));
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@layer components {
+  /* Shared rendering for TipTap HTML (posts/pages/announcements/leonberger note). */
+  .slk-rich {
+    @apply prose prose-sm max-w-none text-foreground;
+  }
+
+  /* FE: links inside rich content shouldn't look like "underline formatting" */
+  .slk-rich a {
+    text-decoration: none !important;
+  }
+
+  .slk-rich a:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .slk-rich :is(.slk-table, table) {
+    @apply my-4 w-full border-collapse table-fixed;
+  }
+
+  .slk-rich :is(.slk-table, table) col {
+    width: auto !important;
+  }
+
+  .slk-rich :is(.slk-table, table) th,
+  .slk-rich :is(.slk-table, table) td {
+    @apply border border-border p-2 align-top whitespace-pre-wrap break-words;
+  }
+
+  .slk-rich :is(.slk-table, table) th {
+    @apply bg-muted font-semibold;
+  }
+
+  .slk-rich :is(.slk-table, table) td {
+    @apply text-center;
+  }
+
+  .slk-rich :is(.slk-table, table) td :is(p, div, span, strong, em, u, a, ul, ol, li) {
+    text-align: inherit !important;
+  }
+
+  /* Keep images from overflowing content areas */
+  .slk-rich img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Row of multiple images inserted from TipTap (multi-upload). */
+  .slk-rich .slk-image-row {
+    @apply my-4 flex flex-wrap gap-3 items-start;
+  }
+
+  .slk-rich .slk-image-row img {
+    @apply max-w-full h-auto;
+  }
+  
+  .ProseMirror .slk-table td,
+  .ProseMirror .slk-table th {
+    position: relative;
+  }
+
+  .ProseMirror .slk-table td.selectedCell::after,
+  .ProseMirror .slk-table th.selectedCell::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 2px solid hsl(var(--accent));
+    pointer-events: none;
+    border-radius: 2px;
+  }
+}
