@@ -1,7 +1,7 @@
 /**
  * Generates public/sitemap.xml and public/robots.txt from Supabase (published content only).
  * Env: VITE_SUPABASE_URL, VITE_SUPABASE_PUBLISHABLE_KEY
- * Optional: SITE_URL or VITE_SITE_URL — canonical origin, no trailing slash (default https://leonberger.sk)
+ * Optional: SITE_URL or VITE_SITE_URL — canonical origin, no trailing slash (default https://example.com)
  */
 import { createClient } from '@supabase/supabase-js'
 import { existsSync } from 'fs'
@@ -84,7 +84,7 @@ async function main() {
 
   const supabaseUrl = process.env.VITE_SUPABASE_URL?.replace(/\/+$/, '')
   const supabaseKey = process.env.VITE_SUPABASE_PUBLISHABLE_KEY
-  const siteUrl = (process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://leonberger.sk').replace(
+  const siteUrl = (process.env.SITE_URL || process.env.VITE_SITE_URL || 'https://example.com').replace(
     /\/+$/,
     '',
   )
@@ -98,10 +98,7 @@ async function main() {
     auth: { persistSession: false, autoRefreshToken: false },
   })
 
-  const [pages, leonbergers] = await Promise.all([
-    fetchAllRows(supabase, 'pages', 'slug, updated_at'),
-    fetchAllRows(supabase, 'leonbergers', 'slug, id, updated_at'),
-  ])
+  const pages = await fetchAllRows(supabase, 'pages', 'slug, updated_at')
 
   const entries = []
   const seen = new Set()
@@ -120,13 +117,6 @@ async function main() {
     const slug = page.slug?.trim()
     if (!slug) continue
     add(`/${slug}`, page.updated_at)
-  }
-
-  for (const dog of leonbergers) {
-    const slug = dog.slug?.trim()
-    const segment = slug || dog.id
-    if (!segment) continue
-    add(`/leonberger/${segment}`, dog.updated_at)
   }
 
   const urlset = entries.map((e) => buildUrlEntry(e.loc, e.lastmod)).join('')
