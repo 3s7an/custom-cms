@@ -27,10 +27,9 @@ const Footer = () => {
   const [links, setLinks] = useState<FooterLink[]>([]);
   const [settings, setSettings] = useState<FooterSetting>(null);
 
-  const contactEmail = settings?.contactEmail?.trim() || "leonberger@leonberger.sk";
-  const facebookUrl =
-    settings?.facebookUrl?.trim() || "https://www.facebook.com/pages/Slovak-Leonberger-Club/182771721774053";
-  const footerBaseText = settings?.copyrightText?.trim() || "Slovenský leonberger klub";
+  const contactEmail = settings?.contactEmail?.trim() || "info@example.com";
+  const facebookUrl = settings?.facebookUrl?.trim() || "https://www.facebook.com";
+  const footerBaseText = settings?.copyrightText?.trim() || "Moja stránka";
   const copyrightText = `${footerBaseText} ${new Date().getFullYear()}`;
 
   const visibleLinks = useMemo(
@@ -77,7 +76,7 @@ const Footer = () => {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col gap-2 mb-8">
             <div className="font-heading uppercase tracking-[0.20em] text-[11px] text-slk-cream/80">
-              Slovenský Leonberger klub
+              {footerBaseText}
             </div>
             <div className="h-px w-16 bg-slk-cream/40" />
           </div>

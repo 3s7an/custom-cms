@@ -6,12 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 
-const DEFAULT_SEED_ADMIN_EMAIL = "admin@leonberger.sk";
+const DEFAULT_SEED_ADMIN_EMAIL = "admin@example.com";
 
 function resolveAdminLoginEmail(input: string): string {
   const t = input.trim();
   if (t.includes("@")) return t;
-  if (t.toLowerCase() === "leonberger") {
+  if (t.toLowerCase() === "admin") {
     const fromEnv = import.meta.env.VITE_ADMIN_LOGIN_EMAIL as string | undefined;
     return (fromEnv && fromEnv.trim()) || DEFAULT_SEED_ADMIN_EMAIL;
   }

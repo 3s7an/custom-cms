@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
-import heroBanner from "@/assets/hero-banner.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
 import { useSiteIdentity } from "@/context/siteIdentity";
@@ -91,6 +90,7 @@ const Header = () => {
   }, [effectiveImages.length, intervalSeconds]);
 
   const resolvedLogo = identity?.logoUrl || logoUrl;
+  const siteTitle = identity?.siteTitle || "Moja stránka";
 
   return (
     <header className="relative w-full overflow-visible lg:h-[350px]">
@@ -122,14 +122,14 @@ const Header = () => {
               {resolvedLogo ? (
                 <img
                   src={resolvedLogo}
-                  alt="Slovenský Leonberger Klub"
+                  alt={siteTitle}
                   className="w-7 h-7 object-contain"
                   width={28}
                   height={28}
                 />
               ) : null}
               <span className="font-heading font-bold capitalize truncate">
-                Slovenský Leonberger Klub
+                {siteTitle}
               </span>
             </Link>
           </div>
@@ -143,7 +143,7 @@ const Header = () => {
               <img
                 key={`${img.public_url}-${idx}`}
                 src={img.public_url}
-                alt={img.alt || "Leonberger dogs"}
+                alt={img.alt || siteTitle}
                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out"
                 style={{ opacity: idx === activeIdx ? 1 : 0 }}
                 width={1400}
@@ -153,8 +153,8 @@ const Header = () => {
           </>
         ) : (
           <img
-            src={heroBanner}
-            alt="Leonberger dogs"
+            src="/placeholder.svg"
+            alt={siteTitle}
             className="w-full h-full object-cover"
             width={1400}
             height={350}
@@ -170,7 +170,7 @@ const Header = () => {
             {resolvedLogo ? (
               <img
                 src={resolvedLogo}
-                alt="Slovenský Leonberger Klub"
+                alt={siteTitle}
                 className="w-[208px] h-[208px] rounded-none"
                 width={208}
                 height={208}

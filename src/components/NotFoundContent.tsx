@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import leonberger404 from "@/assets/leonerger-404.jpeg";
 
 const NotFoundContent = () => (
   <div className="mx-auto flex max-w-lg flex-col items-center text-center">
     <img
-      src={leonberger404}
+      src="/placeholder.svg"
       alt="404 – Stránka sa nenašla"
       className="h-auto w-full max-w-md"
       width={640}

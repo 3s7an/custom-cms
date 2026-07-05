@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://leonberger.sk/sitemap.xml
+Sitemap: https://example.com/sitemap.xml

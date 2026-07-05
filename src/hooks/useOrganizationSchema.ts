@@ -19,10 +19,9 @@ function jsonGetString(obj: Record<string, unknown> | null, key: string): string
   return typeof val === "string" && val.trim() ? val.trim() : null;
 }
 
-const DEFAULT_EMAIL = "leonberger@leonberger.sk";
-const DEFAULT_FACEBOOK =
-  "https://www.facebook.com/pages/Slovak-Leonberger-Club/182771721774053";
-const DEFAULT_NAME = "Slovenský leonberger klub";
+const DEFAULT_EMAIL = "info@example.com";
+const DEFAULT_FACEBOOK = "https://www.facebook.com";
+const DEFAULT_NAME = "Moja stránka";
 
 export function useOrganizationSchema() {
   const { identity } = useSiteIdentity();

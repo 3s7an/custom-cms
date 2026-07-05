@@ -102,7 +102,6 @@ export type Database = {
           created_at: string
           created_by: string | null
           id: string
-          leonberger_list_mode: string | null
           meta_description: string | null
           meta_title: string | null
           parent_page_id: string | null
@@ -119,7 +118,6 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           id?: string
-          leonberger_list_mode?: string | null
           meta_description?: string | null
           meta_title?: string | null
           parent_page_id?: string | null
@@ -136,7 +134,6 @@ export type Database = {
           created_at?: string
           created_by?: string | null
           id?: string
-          leonberger_list_mode?: string | null
           meta_description?: string | null
           meta_title?: string | null
           parent_page_id?: string | null

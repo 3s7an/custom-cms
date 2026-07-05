@@ -137,9 +137,7 @@ const NewsContent = ({ showHeading = true, structuredDataSlug }: Props) => {
   const structuredData = useMemo(() => {
     if (!structuredDataSlug || posts.length === 0) return null;
     const path = `/${structuredDataSlug}`;
-    const pageName = showHeading
-      ? "Novinky Slovenského Leonberger Klubu"
-      : "Novinky";
+    const pageName = "Novinky";
     const webpage = buildWebPage({
       path,
       name: pageName,
@@ -165,7 +163,7 @@ const NewsContent = ({ showHeading = true, structuredDataSlug }: Props) => {
       {structuredData ? <StructuredData data={structuredData} /> : null}
       {showHeading ? (
         <h1 className="font-heading text-2xl font-bold text-foreground mb-4">
-          Novinky Slovenského Leonberger Klubu
+          Novinky
         </h1>
       ) : null}
 
