@@ -35,7 +35,7 @@ const CookieBanner = () => {
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 p-3 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:p-0">
       <div className="w-full sm:w-[420px] max-w-full border border-border bg-[#f2eee6] bg-[length:4px_4px] bg-[radial-gradient(circle,rgba(0,0,0,0.06)_1px,transparent_1px)]">
-        <div className="m-3 border border-border bg-[#fff7e3] p-4 flex flex-col gap-4">
+        <div className="m-3 border border-border bg-secondary p-4 flex flex-col gap-4">
           <div className="min-w-0">
             <div className="font-heading font-bold text-foreground">Cookies</div>
             <p className="text-sm text-foreground/90 mt-1">
@@ -48,7 +48,7 @@ const CookieBanner = () => {
             <Button
               type="button"
               variant="outline"
-              className="bg-[#fff7e3]"
+              className="bg-secondary"
               onClick={() => {
                 writeConsent("declined");
                 setConsent("declined");
@@ -58,7 +58,7 @@ const CookieBanner = () => {
             </Button>
             <Button
               type="button"
-              className="bg-slk-brown text-slk-cream hover:bg-slk-brown/95"
+              className="bg-primary text-primary-foreground hover:bg-primary/95"
               onClick={() => {
                 writeConsent("accepted");
                 setConsent("accepted");

@@ -177,7 +177,7 @@ const AnnouncementsManager = () => {
               key={a.id}
               className={cn(
                 "border border-border p-3 flex flex-col md:flex-row md:items-center gap-3",
-                editing?.id === a.id ? "bg-slk-brown-light ring-2 ring-inset ring-slk-brown/45" : "hover:bg-muted/30",
+                editing?.id === a.id ? "bg-accent ring-2 ring-inset ring-primary/45" : "hover:bg-muted/30",
               )}
             >
               <div className="min-w-0 flex-1">

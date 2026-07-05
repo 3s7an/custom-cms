@@ -95,7 +95,7 @@ const Header = () => {
   return (
     <header className="relative w-full overflow-visible lg:h-[350px]">
       <div className="absolute inset-x-0 top-0 z-30 lg:hidden">
-        <div className="bg-slk-brown border-b border-border">
+        <div className="bg-primary border-b border-border">
           <div className="flex items-center gap-3 px-3 py-2">
             <Sheet>
               <SheetTrigger asChild>
@@ -103,14 +103,14 @@ const Header = () => {
                   variant="ghost"
                   size="icon"
                   aria-label="Otvoriť menu"
-                  className="bg-white/10 hover:bg-white/15 text-[#fff7e3] border border-white/15"
+                  className="bg-white/10 hover:bg-white/15 text-primary-foreground border border-white/15"
                 >
                   <Menu className="h-5 w-5 text-current" />
                 </Button>
               </SheetTrigger>
               <SheetContent
                 side="left"
-                className="flex h-full max-h-[100dvh] flex-col gap-0 overflow-hidden p-0 bg-slk-cream"
+                className="flex h-full max-h-[100dvh] flex-col gap-0 overflow-hidden p-0 bg-secondary"
               >
                 <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain p-3 pt-14 pb-8">
                   <Sidebar />
@@ -118,7 +118,7 @@ const Header = () => {
               </SheetContent>
             </Sheet>
 
-            <Link to="/" className="flex items-center gap-2 min-w-0 text-[#fff7e3]">
+            <Link to="/" className="flex items-center gap-2 min-w-0 text-primary-foreground">
               {resolvedLogo ? (
                 <img
                   src={resolvedLogo}
@@ -164,9 +164,9 @@ const Header = () => {
       <div className="absolute left-4 top-1/2 -translate-y-1/2 z-20 hidden lg:block">
         <Link
           to="/"
-          className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-slk-brown rounded-none"
+          className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-none"
         >
-          <div className="bg-slk-cream px-1 py-7 shadow-[0_10px_20px_rgba(0,0,0,0.28)]">
+          <div className="bg-secondary px-1 py-7 shadow-[0_10px_20px_rgba(0,0,0,0.28)]">
             {resolvedLogo ? (
               <img
                 src={resolvedLogo}

@@ -11,7 +11,7 @@ const NotFoundContent = () => (
     />
     <Link
       to="/"
-      className="mt-6 inline-block font-heading text-slk-brown underline hover:opacity-90"
+      className="mt-6 inline-block font-heading text-primary underline hover:opacity-90"
     >
       Späť na úvod
     </Link>

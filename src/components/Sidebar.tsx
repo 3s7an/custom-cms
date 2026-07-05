@@ -62,17 +62,17 @@ const Sidebar = () => {
     <nav className="w-full mt-[15px] lg:border-r lg:border-border">
       {sections.map((section) => (
         <div key={section.id} className="mb-0">
-          <h3 className="bg-slk-brown text-[#fff7e3] font-heading text-lg font-bold px-4 py-2 my-0">
+          <h3 className="bg-primary text-primary-foreground font-heading text-lg font-bold px-4 py-2 my-0">
             {section.title}
           </h3>
-          <ul className="bg-slk-cream">
+          <ul className="bg-secondary">
             {section.pages.map((page) => (
               <li key={page.id}>
                 <NavLink
                   to={`/${page.slug}`}
                   className={({ isActive }) =>
                     [
-                      "block py-1.5 text-foreground hover:bg-slk-brown-light transition-colors px-[25px]",
+                      "block py-1.5 text-foreground hover:bg-accent transition-colors px-[25px]",
                       isActive ? "underline underline-offset-2" : "",
                       page.parent_page_id ? "pl-8" : "",
                     ]

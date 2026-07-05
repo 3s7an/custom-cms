@@ -501,7 +501,7 @@ const SiteAssetsManager = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <div className="w-[80px] h-[80px] border border-border bg-slk-cream flex items-center justify-center overflow-hidden">
+          <div className="w-[80px] h-[80px] border border-border bg-secondary flex items-center justify-center overflow-hidden">
             {currentFaviconUrl ? (
               <img src={currentFaviconUrl} alt="Favicon" className="w-full h-full object-contain" />
             ) : (
@@ -531,7 +531,7 @@ const SiteAssetsManager = () => {
         <div className="mt-6">
           <h4 className="font-heading font-semibold mb-2">Pozadie stránky</h4>
           <div className="flex flex-col md:flex-row md:items-center gap-4">
-            <div className="w-full md:w-[220px] h-[120px] border border-border bg-slk-cream overflow-hidden flex items-center justify-center">
+            <div className="w-full md:w-[220px] h-[120px] border border-border bg-secondary overflow-hidden flex items-center justify-center">
               {currentBackgroundUrl ? (
                 <img src={currentBackgroundUrl} alt="Pozadie" className="w-full h-full object-cover" />
               ) : (
@@ -568,7 +568,7 @@ const SiteAssetsManager = () => {
       <div className="bg-card border border-border p-4">
         <h3 className="font-heading text-lg font-bold mb-3">Logo</h3>
         <div className="flex items-center gap-4">
-          <div className="w-[120px] h-[120px] border border-border bg-slk-cream flex items-center justify-center overflow-hidden">
+          <div className="w-[120px] h-[120px] border border-border bg-secondary flex items-center justify-center overflow-hidden">
             {currentLogoUrl ? (
               <img src={currentLogoUrl} alt="Logo" className="w-full h-full object-contain" />
             ) : (
@@ -638,7 +638,7 @@ const SiteAssetsManager = () => {
           <div className="space-y-2">
             {navbarImages.map((img) => (
               <div key={img.id} className="border border-border bg-background p-3 flex gap-3 items-center">
-                <div className="w-20 h-20 border border-border bg-slk-cream overflow-hidden flex items-center justify-center">
+                <div className="w-20 h-20 border border-border bg-secondary overflow-hidden flex items-center justify-center">
                   <img src={img.public_url} alt={img.alt || ""} className="w-full h-full object-contain" />
                 </div>
 
@@ -727,7 +727,7 @@ const SiteAssetsManager = () => {
           <div className="space-y-2">
             {footerLinks.map((img) => (
               <div key={img.id} className="border border-border bg-background p-3 flex gap-3 items-center">
-                <div className="w-20 h-20 border border-border bg-slk-cream overflow-hidden flex items-center justify-center">
+                <div className="w-20 h-20 border border-border bg-secondary overflow-hidden flex items-center justify-center">
                   <img src={img.public_url} alt={img.alt || ""} className="w-full h-full object-contain" />
                 </div>
 

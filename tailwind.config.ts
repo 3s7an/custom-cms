@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
+  content: ["./index.html", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -14,17 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Roboto Slab"', 'Georgia', 'serif'],
-        body: ['"Roboto Slab"', 'Georgia', 'serif'],
+        heading: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        /* sekcie v sidebare */
-        'slk-brown': '#59412d',
-        'slk-brown-dark': 'hsl(20, 50%, 22%)',
-        'slk-brown-light': 'hsl(30, 40%, 85%)',
-        /* pozadie v sidebare */
-        'slk-cream': '#e9dab8',
-        'slk-link': 'hsl(15, 70%, 40%)',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

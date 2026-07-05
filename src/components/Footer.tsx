@@ -70,29 +70,29 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative overflow-hidden bg-slk-brown text-slk-cream">
+    <footer className="relative overflow-hidden bg-primary text-primary-foreground">
       <div className="pointer-events-none absolute inset-0 opacity-[0.55] [background:radial-gradient(circle_at_15%_25%,rgba(233,218,184,0.35),transparent_55%),radial-gradient(circle_at_85%_5%,rgba(233,218,184,0.22),transparent_45%),radial-gradient(circle_at_85%_85%,rgba(0,0,0,0.22),transparent_55%)]" />
       <div className="relative border-t border-white/10 px-6 py-4">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col gap-2 mb-8">
-            <div className="font-heading uppercase tracking-[0.20em] text-[11px] text-slk-cream/80">
+            <div className="font-heading uppercase tracking-[0.20em] text-[11px] text-primary-foreground/80">
               {footerBaseText}
             </div>
-            <div className="h-px w-16 bg-slk-cream/40" />
+            <div className="h-px w-16 bg-secondary/40" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <section className="border border-black/10 bg-slk-cream text-slk-brown px-5 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+            <section className="border border-black/10 bg-secondary text-primary px-5 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-full bg-slk-brown text-slk-cream flex items-center justify-center flex-shrink-0 shadow-sm">
+                <div className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Link2 className="w-5 h-5" />
                 </div>
                 <div className="min-w-0 w-full">
                   <h3 className="font-heading font-semibold text-sm tracking-wide uppercase mb-1">Odporúčané linky</h3>
-                  <div className="h-px w-10 bg-slk-brown/35 mb-4" />
+                  <div className="h-px w-10 bg-primary/35 mb-4" />
 
                   {visibleLinks.length === 0 ? (
-                    <p className="text-sm text-slk-brown/80">—</p>
+                    <p className="text-sm text-primary/80">—</p>
                   ) : (
                     <div className="flex flex-wrap gap-3">
                       {visibleLinks.map((x) => {
@@ -117,21 +117,21 @@ const Footer = () => {
               </div>
             </section>
 
-            <section className="border border-black/10 bg-slk-cream text-slk-brown px-5 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+            <section className="border border-black/10 bg-secondary text-primary px-5 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
               <div className="flex items-start gap-4">
-                <div className="w-11 h-11 rounded-full bg-slk-brown text-slk-cream flex items-center justify-center flex-shrink-0 shadow-sm">
+                <div className="w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center flex-shrink-0 shadow-sm">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0 w-full">
                   <h3 className="font-heading font-semibold text-sm tracking-wide uppercase mb-1">Kontaktujte nás</h3>
-                  <div className="h-px w-10 bg-slk-brown/35 mb-4" />
+                  <div className="h-px w-10 bg-primary/35 mb-4" />
 
                   <div className="flex flex-col gap-3 text-sm">
                     <a
-                      className="inline-flex items-center gap-2 text-slk-brown/90 hover:text-slk-brown underline underline-offset-2 break-words"
+                      className="inline-flex items-center gap-2 text-primary/90 hover:text-primary underline underline-offset-2 break-words"
                       href={`mailto:${contactEmail}`}
                     >
-                      <Mail className="w-4 h-4 text-slk-brown/70 shrink-0" />
+                      <Mail className="w-4 h-4 text-primary/70 shrink-0" />
                       {contactEmail}
                     </a>
 
@@ -141,8 +141,8 @@ const Footer = () => {
                       rel="noreferrer noopener"
                       className="inline-flex items-center gap-2 bg-transparent hover:bg-black/5 transition-colors"
                     >
-                      <Facebook className="w-4 h-4 text-slk-brown/70 shrink-0" />
-                      <span className="text-slk-brown/90">nájdete nás na Facebooku</span>
+                      <Facebook className="w-4 h-4 text-primary/70 shrink-0" />
+                      <span className="text-primary/90">nájdete nás na Facebooku</span>
                     </a>
                   </div>
                 </div>
@@ -150,15 +150,15 @@ const Footer = () => {
             </section>
           </div>
 
-          <div className="mt-10 pt-6 border-t border-white/10 flex flex-col items-center justify-center gap-1 text-xs text-slk-cream/80 text-center">
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-col items-center justify-center gap-1 text-xs text-primary-foreground/80 text-center">
             <div>{copyrightText}</div>
-            <div className="text-[11px] text-slk-cream">
+            <div className="text-[11px] text-primary-foreground">
               developed by{" "}
               <a
                 href="https://tristanprekop.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slk-cream underline underline-offset-2"
+                className="text-primary-foreground underline underline-offset-2"
               >
                 tristanprekop.com
               </a>

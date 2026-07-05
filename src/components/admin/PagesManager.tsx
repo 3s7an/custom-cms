@@ -231,11 +231,11 @@ const PagesManager = () => {
             key={p.id}
             className={cn(
               "border border-border p-3 flex flex-col md:flex-row md:items-center gap-3",
-              editing?.id === p.id ? "bg-slk-brown-light ring-2 ring-inset ring-slk-brown/45" : "hover:bg-muted/30",
+              editing?.id === p.id ? "bg-accent ring-2 ring-inset ring-primary/45" : "hover:bg-muted/30",
             )}
           >
             <div className="min-w-0 flex-1">
-              <div className={`font-semibold break-words ${p.parent_page_id ? "border-l-2 border-slk-brown/30 pl-2" : ""}`}>
+              <div className={`font-semibold break-words ${p.parent_page_id ? "border-l-2 border-primary/30 pl-2" : ""}`}>
                 {p.title}
               </div>
               <div className="text-sm text-muted-foreground break-words mt-0.5">

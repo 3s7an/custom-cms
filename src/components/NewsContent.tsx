@@ -194,14 +194,14 @@ const NewsContent = ({ showHeading = true, structuredDataSlug }: Props) => {
         return (
           <article key={post.id} className="mb-6">
             <div className="flex items-start gap-3 mb-3">
-              <div className="flex-shrink-0 bg-slk-brown text-slk-cream text-xs text-center px-2 py-1 min-w-[45px]">
+              <div className="flex-shrink-0 bg-primary text-primary-foreground text-xs text-center px-2 py-1 min-w-[45px]">
                 <div className="font-bold">
                   {date.day}. {date.month}
                 </div>
                 <div>{date.year}</div>
               </div>
               <h2 className="font-heading text-xl font-bold text-foreground leading-tight">
-                <a href="#" className="text-foreground hover:text-slk-link">
+                <a href="#" className="text-foreground hover:text-primary">
                   {post.title}
                 </a>
               </h2>

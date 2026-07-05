@@ -28,7 +28,7 @@ const RightSidebar = () => {
       {announcements.map((a) => (
         <div key={a.id} className="mb-6">
           <h3 className="flex items-center gap-2 font-heading text-lg font-bold text-foreground mb-3 my-[5px]">
-            <span className="bg-slk-brown text-slk-cream w-6 h-6 flex items-center justify-center text-sm font-bold">!</span>
+            <span className="bg-primary text-primary-foreground w-6 h-6 flex items-center justify-center text-sm font-bold">!</span>
             {a.title}
           </h3>
           <div className="overflow-x-auto">
