@@ -9,7 +9,6 @@ import AdminLogin from "./pages/AdminLogin.tsx";
 import AdminDashboard from "./pages/AdminDashboard.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import PageView from "./pages/PageView.tsx";
-import LeonbergerDetail from "./pages/LeonbergerDetail.tsx";
 import { SiteIdentityProvider } from "@/context/siteIdentity";
 import CookieBanner from "@/components/CookieBanner";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -30,7 +29,6 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="/leonberger/:slug" element={<LeonbergerDetail />} />
               <Route path="/:slug" element={<PageView />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

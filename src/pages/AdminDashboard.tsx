@@ -8,10 +8,6 @@ import SectionsManager from "@/components/admin/SectionsManager";
 import PagesManager from "@/components/admin/PagesManager";
 import PostsManager from "@/components/admin/PostsManager";
 import AnnouncementsManager from "@/components/admin/AnnouncementsManager";
-import LeonbergersManager from "@/components/admin/LeonbergersManager";
-import MatingSheetsManager from "@/components/admin/MatingSheetsManager";
-import KennelsManager from "@/components/admin/KennelsManager";
-import ContactsManager from "@/components/admin/ContactsManager";
 import SiteAssetsManager from "@/components/admin/SiteAssetsManager";
 
 const AdminDashboard = () => {
@@ -73,20 +69,12 @@ const AdminDashboard = () => {
                 <TabsTrigger value="pages">Stránky</TabsTrigger>
                 <TabsTrigger value="sections">Sekcie</TabsTrigger>
                 <TabsTrigger value="announcements">Oznamy</TabsTrigger>
-                <TabsTrigger value="leonbergers">Leonbergers</TabsTrigger>
-                <TabsTrigger value="matingSheets">Krycie listy</TabsTrigger>
-                <TabsTrigger value="kennels">Chovateľské stanice</TabsTrigger>
-                <TabsTrigger value="contacts">Kontakty</TabsTrigger>
                 <TabsTrigger value="site">Nastavenia</TabsTrigger>
               </TabsList>
               <TabsContent value="posts"><PostsManager /></TabsContent>
               <TabsContent value="pages"><PagesManager /></TabsContent>
               <TabsContent value="sections"><SectionsManager /></TabsContent>
               <TabsContent value="announcements"><AnnouncementsManager /></TabsContent>
-              <TabsContent value="leonbergers"><LeonbergersManager /></TabsContent>
-              <TabsContent value="matingSheets"><MatingSheetsManager /></TabsContent>
-              <TabsContent value="kennels"><KennelsManager /></TabsContent>
-              <TabsContent value="contacts"><ContactsManager /></TabsContent>
               <TabsContent value="site"><SiteAssetsManager /></TabsContent>
             </Tabs>
           </div>

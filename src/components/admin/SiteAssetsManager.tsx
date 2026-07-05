@@ -7,7 +7,7 @@ import { Switch } from "@/components/ui/switch";
 import { useToast } from "@/hooks/use-toast";
 import { Trash2 } from "lucide-react";
 import type { Json } from "@/integrations/supabase/types";
-import { toAbsoluteHttpUrl } from "@/lib/leonbergerDisplay";
+import { toAbsoluteHttpUrl } from "@/lib/utils";
 
 type NavbarImage = {
   id: string;

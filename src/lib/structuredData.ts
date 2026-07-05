@@ -127,40 +127,6 @@ export function buildNewsArticles(
   });
 }
 
-export function buildLeonbergerAnimal(input: {
-  path: string;
-  name: string;
-  description?: string | null;
-  image?: string | null;
-  birthDate?: string | null;
-  sex?: "pes" | "suka";
-  sireName?: string | null;
-  damName?: string | null;
-}, origin = getSiteOrigin()) {
-  const pageUrl = absoluteUrl(input.path);
-  const gender = input.sex === "suka" ? "Female" : input.sex === "pes" ? "Male" : undefined;
-  return {
-    "@type": "Animal",
-    "@id": `${pageUrl}#animal`,
-    name: input.name,
-    url: pageUrl,
-    ...(input.description ? { description: input.description } : {}),
-    ...(input.image ? { image: input.image } : {}),
-    ...(input.birthDate ? { birthDate: input.birthDate } : {}),
-    ...(gender ? { gender } : {}),
-    ...(input.sireName || input.damName
-      ? {
-          parent: [
-            input.sireName ? { "@type": "Animal", name: input.sireName } : null,
-            input.damName ? { "@type": "Animal", name: input.damName } : null,
-          ].filter(Boolean),
-        }
-      : {}),
-    additionalType: "https://www.wikidata.org/wiki/Q39302",
-    breed: "Leonberger",
-  };
-}
-
 export function buildProfilePage(input: {
   path: string;
   name: string;

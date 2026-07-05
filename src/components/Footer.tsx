@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Facebook, Link2, Mail } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import type { Tables, Json } from "@/integrations/supabase/types";
-import { toAbsoluteHttpUrl } from "@/lib/leonbergerDisplay";
+import { toAbsoluteHttpUrl } from "@/lib/utils";
 
 type FooterLink = Tables<"footer_links">;
 

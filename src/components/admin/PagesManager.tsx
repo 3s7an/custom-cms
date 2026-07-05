@@ -9,10 +9,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Pencil, Trash2, Plus, Search } from "lucide-react";
 import TiptapEditor from "./TiptapEditor";
-import ShowResultsManager from "./ShowResultsManager";
-import CalendarEventsManager from "./CalendarEventsManager";
-
-type LeonbergerListMode = "chovne_psy" | "chovne_feny" | "veterani";
 
 type Page = {
   id: string;
@@ -25,7 +21,6 @@ type Page = {
   sort_order: number;
   section_id: string | null;
   parent_page_id: string | null;
-  leonberger_list_mode: string | null;
 };
 
 type Section = { id: string; title: string };
@@ -46,7 +41,6 @@ const PagesManager = () => {
   const [parentPageId, setParentPageId] = useState("");
   const [published, setPublished] = useState(true);
   const [sortOrder, setSortOrder] = useState(0);
-  const [leonbergerListMode, setLeonbergerListMode] = useState<"" | LeonbergerListMode>("");
 
   const [filterName, setFilterName] = useState("");
   const [filterSection, setFilterSection] = useState("");
@@ -54,7 +48,7 @@ const PagesManager = () => {
 
   const fetchData = async () => {
     const [pagesRes, sectionsRes] = await Promise.all([
-      supabase.from("pages").select("id, title, slug, content, meta_title, meta_description, published, sort_order, section_id, parent_page_id, leonberger_list_mode").order("sort_order"),
+      supabase.from("pages").select("id, title, slug, content, meta_title, meta_description, published, sort_order, section_id, parent_page_id").order("sort_order"),
       supabase.from("sections").select("id, title").order("sort_order"),
     ]);
     if (pagesRes.data) setPages(pagesRes.data);
@@ -69,7 +63,7 @@ const PagesManager = () => {
 
   const resetForm = () => {
     setTitle(""); setSlug(""); setContent(""); setMetaTitle(""); setMetaDescription(""); setSectionId(""); setParentPageId("");
-    setPublished(true); setSortOrder(0); setLeonbergerListMode(""); setEditing(null); setIsNew(false);
+    setPublished(true); setSortOrder(0); setEditing(null); setIsNew(false);
   };
 
   const startEdit = (p: Page) => {
@@ -78,7 +72,6 @@ const PagesManager = () => {
     setMetaDescription(p.meta_description || "");
     setSectionId(p.section_id || ""); setParentPageId(p.parent_page_id || "");
     setPublished(p.published); setSortOrder(p.sort_order);
-    setLeonbergerListMode((p.leonberger_list_mode as LeonbergerListMode | null) || "");
     setEditing(p); setIsNew(false);
   };
 
@@ -94,7 +87,6 @@ const PagesManager = () => {
       sort_order: sortOrder,
       section_id: sectionId || null,
       parent_page_id: parentPageId || null,
-      leonberger_list_mode: leonbergerListMode || null,
     };
 
     if (editing) {
@@ -187,23 +179,6 @@ const PagesManager = () => {
             </div>
           </div>
 
-          <div className="mb-3">
-            <Label>Zoznam Leonbergerov na stránke</Label>
-            <select
-              className="w-full max-w-md border border-border bg-background px-3 py-2 text-sm mt-1"
-              value={leonbergerListMode}
-              onChange={(e) => setLeonbergerListMode(e.target.value as "" | LeonbergerListMode)}
-            >
-              <option value="">Žiadny (iba textový obsah)</option>
-              <option value="chovne_psy">Chovné psy</option>
-              <option value="chovne_feny">Chovné feny</option>
-              <option value="veterani">Veteráni</option>
-            </select>
-            <p className="text-xs text-muted-foreground mt-1">
-              Ak vyberiete režim, pod nadpisom sa zobrazí mriežka psikov; obsah editora môže slúžiť ako úvodný text.
-            </p>
-          </div>
-
           <div className="grid grid-cols-3 gap-3 mb-3">
             <div>
               <Label>Sekcia</Label>
@@ -230,35 +205,7 @@ const PagesManager = () => {
           </div>
           <div className="mb-3">
             <Label>Obsah</Label>
-            {slug.trim() === "vysledky" ? (
-              editing ? (
-                <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground">
-                    Táto stránka používa riadkový zoznam výsledkov (bez WYSIWYG editora).
-                  </p>
-                  <ShowResultsManager pageId={editing.id} />
-                </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Najprv ulož stránku, potom bude možné pridávať riadky výsledkov.
-                </p>
-              )
-            ) : slug.trim() === "kalendar" ? (
-              editing ? (
-                <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground">
-                    Táto stránka používa riadkový kalendár (bez WYSIWYG editora).
-                  </p>
-                  <CalendarEventsManager pageId={editing.id} />
-                </div>
-              ) : (
-                <p className="text-sm text-muted-foreground">
-                  Najprv ulož stránku, potom bude možné pridávať riadky kalendára.
-                </p>
-              )
-            ) : (
-              <TiptapEditor content={content} onChange={setContent} key={editing?.id || "new"} />
-            )}
+            <TiptapEditor content={content} onChange={setContent} key={editing?.id || "new"} />
           </div>
           <div className="flex gap-2">
             <Button onClick={handleSave}>{editing ? "Uložiť" : "Vytvoriť"}</Button>
