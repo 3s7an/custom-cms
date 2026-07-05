@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "setup": "bash scripts/dev-setup.sh",
     "dev": "vite",
     "build": "node scripts/generate-sitemap.mjs && vite build",
     "build:dev": "vite build --mode development",

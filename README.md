@@ -24,6 +24,18 @@ npm run dev
 
 ### Lokálna databáza (Supabase CLI + Docker)
 
+**Automaticky (odporúčané)** – spustí lokálny Supabase, vyplní `.env` a pustí migrácie + seed:
+
+```bash
+npm install
+npm run setup
+npm run dev
+```
+
+Vyžaduje bežiaci Docker. Skript `scripts/dev-setup.sh` sám vytiahne API URL a anon key z lokálneho Supabase.
+
+**Manuálne:**
+
 ```bash
 npx supabase start
 npx supabase db reset
